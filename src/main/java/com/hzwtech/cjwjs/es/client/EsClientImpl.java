@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+
 /**
  * @author Jasper Liuzengyu 刘增玉
  * @version v1.0.0
@@ -32,6 +33,7 @@ public class EsClientImpl implements EsClient {
     private static final long INITIALIZATION_TIMEOUT = 1000;
     private static final long INITIALIZATION_RETRY_WAIT = 1000;
     private static final Object TAG = new Object();
+    private static final RestHighLevelClient HEADERS = null;
     private String host = "localhost";
     private int port = 9200;
     //    private String scheme = "my-application";

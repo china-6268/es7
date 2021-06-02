@@ -12,7 +12,7 @@ import org.junit.Test;
 public class CarFactoryTest {
     @Test
     public void aa(){
-        CarFactory carFactory = new CarFactory();
-        carFactory.toString();
+//        CarFactory carFactory = new CarFactory();
+//        carFactory.toString();
     }
 }

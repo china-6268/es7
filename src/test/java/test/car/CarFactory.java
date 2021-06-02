@@ -12,13 +12,22 @@ import org.springframework.stereotype.Service;
  * @date 2021/6/2
  * @since v1.0
  */
-@Service
+
 public class CarFactory {
-    @Autowired
-    @Qualifier("BMW")
+//    @Autowired
+//    @Qualifier("bMW")
     private Car car;
 
-    public String toString() {
-        return car.carName();
+    @Autowired
+    @Qualifier("benz")
+    private Car benz;
+
+//    public String toString() {
+//        return car.carName();
+//    }
+
+    @Test
+    public void toStringBiz(){
+        benz.carName();
     }
 }
