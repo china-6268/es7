@@ -1,6 +1,7 @@
 # es7
 背景介绍：<br>
 1.基于arm架构cpu，国产linux操作系统，为内网做ES7.12.1+Springboot2.5的代码准备<br>
+2.本文采用adoptopenjdk11.0.11+jvmOpenJ9-0.26.0作为开发运行JDK<br>
 
 本工程启动的前置条件：<br>
 1.必须安装ES7.12.1并启动<br>
