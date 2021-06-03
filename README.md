@@ -9,7 +9,7 @@
 7.本工程开发 OS 为 macOS Big Sur 11.4
 
 本工程启动的前置条件：<br>
-1.必须安装 Elasticsearch 7.12.1并启动<br>
+1.必须安装 Elasticsearch 7.12.1 并启动<br>
 2.推荐启动 Kibana7.12.1<br>
 
 
