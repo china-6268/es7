@@ -1,6 +1,6 @@
 package es.connection;
 
-import com.hzwtech.cjwjs.es.client.EsClientImpl;
+import com.hzwtech.cqwjs.es.client.EsClientImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;

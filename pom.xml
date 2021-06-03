@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hzwtech</groupId>
-    <artifactId>cjwjs</artifactId>
+    <artifactId>cqwjs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>cjwjs</name>
+    <name>cqwjs</name>
     <description>cjwjs project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -212,6 +212,11 @@
             <version>0.0.4</version>
         </dependency>
         <dependency>
+            <groupId>com.hankcs</groupId>
+            <artifactId>hanlp</artifactId>
+            <version>portable-1.8.1</version>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.76</version>
@@ -226,7 +231,16 @@
             <artifactId>shiro-core</artifactId>
             <version>1.7.1</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+            <version>7.54.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-core</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

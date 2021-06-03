@@ -1,12 +1,9 @@
 package es.client;
 
-import com.hzwtech.cjwjs.es.client.EsClientImpl;
+import com.hzwtech.cqwjs.es.client.EsClientImpl;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @author Jasper Liuzengyu 刘增玉
