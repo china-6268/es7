@@ -10,5 +10,6 @@
 2.推荐启动kibana7.12.1<br>
 
 
-工作更新2021.6.2<br>
+工作更新<br>
+2021.6.2<br>
 1.es更新了Client由RestHighLevelClient代替TransportClient
