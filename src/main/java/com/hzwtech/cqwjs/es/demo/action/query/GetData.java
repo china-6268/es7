@@ -25,7 +25,9 @@ public class GetData {
         GetRequest request = new GetRequest("book-1");
         // 为特定字段 配置  源包含
         String[] includs = {"name", "id", "content","userId","buyDate"};
-        String[] excluds = {"id"};
+        String[] excluds = {
+//                "id"
+        };
         FetchSourceContext context = new FetchSourceContext(true, includs, excluds);
         request.id("1").fetchSourceContext(context);
         try {
@@ -34,9 +36,9 @@ public class GetData {
                 //检索名称
                 System.out.println(documentFields.getIndex());
                 // 获取文档源的 Map 结果
-                System.out.println(documentFields.getSource());
+                System.err.println(documentFields.getSource());
                 // 获取源作为 Map
-                System.out.println(documentFields.getSourceAsMap());
+//                System.err.println(documentFields.getSourceAsMap());
                 // 获取源作为 bytes
                 System.out.println(documentFields.getSourceAsBytes());
             } else {

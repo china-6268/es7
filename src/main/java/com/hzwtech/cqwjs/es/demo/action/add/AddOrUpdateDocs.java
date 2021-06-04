@@ -25,16 +25,20 @@ public class AddOrUpdateDocs {
     public void doIndexAddOrUpdateDocs() {
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("127.0.0.1", 9200)));
         //创建请求， 参数index名称
-        IndexRequest request = new IndexRequest("book-1");
+        IndexRequest request = new IndexRequest("book_index_demo");
         //请求的模式，CREATE： 创建模式，如果已经存在则报错   Index:存在则不再创建，也不报错
         request.opType(DocWriteRequest.OpType.INDEX);
-        String  json = "{\n" +
+        String   json = "{\n" +
                 "  \"id\": 1,\n" +
-                "  \"userId\": 7,\n" +
+                "  \"userId\": 1,\n" +
                 "  \"name\": \"语文考神\",\n" +
                 "  \"content\": \"语文就是回回考100分\",\n" +
-                "  \"buyDate\":  \"2021-06-01\",\n" +
-                "  \"price\": 11\n"  +
+                "  \"gmt_created\":  \"2021-06-01\",\n" +
+                "  \"gmt_modified\":  \"2021-06-01\",\n" +
+                "  \"is_deleted\":  0,\n" +
+                "  \"status\":  0,\n" +
+                "  \"key_word\":  \"语文\",\n" +
+                "  \"price\": 11.11\n"  +
                 "}";
         request.id("1").source(
                 json,

@@ -23,45 +23,91 @@ import java.io.IOException;
  */
 @Slf4j
 public class CreateIndex {
+    private String getJsonString() {
+        String json = "{\n" +
+                "  \"dynamic\": true,\n" +
+                "  \"properties\": {\n" +
+                "    \"id\": {\n" +
+                "      \"type\": \"long\",\n" +
+                "      \"store\": true\n" +
+                "    },\n" +
+                "    \"userId\": {\n" +
+                "      \"type\": \"long\",\n" +
+                "      \"store\": true\n" +
+                "    },\n" +
+                "    \"name\": {\n" +
+                "      \"type\": \"text\",\n" +
+                "      \"index\": true,\n" +
+                "      \"analyzer\": \"ik_max_word\"\n" +
+                "    },\n" +
+                "    \"content\": {\n" +
+                "      \"type\": \"text\",\n" +
+                "      \"index\": true,\n" +
+                "      \"analyzer\": \"ik_max_word\"\n" +
+                "    },\n" +
+                "    \"title\": {\n" +
+                "      \"type\": \"text\",\n" +
+                "      \"index\": true,\n" +
+                "      \"analyzer\": \"ik_max_word\"\n" +
+                "    },\n" +
+                "    \"summary\": {\n" +
+                "      \"type\": \"text\",\n" +
+                "      \"index\": true,\n" +
+                "      \"analyzer\": \"ik_max_word\"\n" +
+                "    },\n" +
+                "    \"description\": {\n" +
+                "      \"type\": \"text\",\n" +
+                "      \"index\": true,\n" +
+                "      \"analyzer\": \"ik_max_word\"\n" +
+                "    },\n" +
+                "    \"key_word\": {\n" +
+                "      \"type\": \"keyword\",\n" +
+                "      \"ignore_above\" : 256,\n" +
+                "      \"index\": true\n" +
+                "    },\n" +
+                "    \"author\": {\n" +
+                "      \"type\": \"keyword\",\n" +
+                "      \"ignore_above\" : 256,\n" +
+                "      \"index\": true\n" +
+                "    },\n" +
+                "    \"price\": {\n" +
+//                "      \"type\": \"unsigned_long\",\n" +
+                "      \"type\": \"double\",\n" +
+                "      \"index\": true,\n" +
+                "      \"store\": true\n" +
+                "    },\n" +
+                "    \"status\": {\n" +
+                "      \"type\": \"integer\",\n" +
+                "      \"index\": true,\n" +
+                "      \"store\": true\n" +
+                "    },\n" +
+                "    \"is_deleted\": {\n" +
+                "      \"type\": \"short\",\n" +
+                "      \"index\": true,\n" +
+                "      \"store\": true\n" +
+                "    },\n" +
+                "    \"gmt_created\": {\n" +
+                "      \"type\": \"date\",\n" +
+                "      \"index\": true,\n" +
+                "      \"store\": true\n" +
+                "    },\n" +
+                "    \"gmt_updated\": {\n" +
+                "      \"type\": \"date\",\n" +
+                "      \"index\": true,\n" +
+                "      \"store\": true\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+        return json;
+    }
+
     @Test
     public void doCreateIndex() {
+        String indexName = "book_index_demo";
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("127.0.0.1", 9200)));
-        CreateIndexRequest createIndexRequest = new CreateIndexRequest("book-1");
-        createIndexRequest.settings(Settings.builder().put("index.number_of_shards", 3).put("index.number_of_replicas", 2)
-        );
-        createIndexRequest.mapping("{\n" +
-                        "  \"properties\": {\n" +
-                        "    \"id\": {\n" +
-                        "      \"type\": \"long\",\n" +
-                        "      \"store\": true\n" +
-                        "    },\n" +
-                        "    \"userId\": {\n" +
-                        "      \"type\": \"long\",\n" +
-                        "      \"store\": true\n" +
-                        "    },\n" +
-                        "    \"name\": {\n" +
-                        "      \"type\": \"text\",\n" +
-                        "      \"index\": true,\n" +
-                        "      \"analyzer\": \"ik_max_word\"\n" +
-                        "    },\n" +
-                        "    \"content\": {\n" +
-                        "      \"type\": \"text\",\n" +
-                        "      \"index\": true,\n" +
-                        "      \"analyzer\": \"ik_max_word\"\n" +
-                        "    },\n" +
-                        "    \"price\": {\n" +
-                        "      \"type\": \"long\",\n" +
-                        "      \"index\": true,\n" +
-                        "      \"store\": true\n" +
-                        "    },\n" +
-                        "    \"buyDate\": {\n" +
-                        "      \"type\": \"date\",\n" +
-                        "      \"index\": true,\n" +
-                        "      \"store\": true\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}",
-                XContentType.JSON
+        CreateIndexRequest createIndexRequest = new CreateIndexRequest(indexName);
+        createIndexRequest.settings(Settings.builder().put("index.number_of_shards", 3).put("index.number_of_replicas", 2));
+        createIndexRequest.mapping(getJsonString(), XContentType.JSON
         );
         createIndexRequest.setTimeout(TimeValue.timeValueMinutes(1000));
         try {
@@ -71,7 +117,7 @@ public class CreateIndex {
             boolean shardsAcknowledged = createIndexResponse.isShardsAcknowledged();//指示是否在超时之前为索引中的每个分片启动了必需的分片副本数
             System.err.println("acknowledged:" + acknowledged);
             System.err.println("shardsAcknowledged:" + shardsAcknowledged);
-            System.err.println("createIndexResponse.index()=" + createIndexResponse.index());
+            System.err.println("createIndexResponse.index()= " + createIndexResponse.index());
         } catch (IOException e) {
             log.error(e.getLocalizedMessage());
         }
