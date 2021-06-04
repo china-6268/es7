@@ -20,32 +20,33 @@ import java.io.IOException;
  * @date 2021/6/2
  * @since v1.0
  */
-public class IndexAddDocs {
+public class AddOrUpdateDocs {
     @Test
-    public void aaa() {
+    public void doIndexAddOrUpdateDocs() {
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("127.0.0.1", 9200)));
         //创建请求， 参数index名称
-        IndexRequest request = new IndexRequest("book-index");
+        IndexRequest request = new IndexRequest("book-1");
         //请求的模式，CREATE： 创建模式，如果已经存在则报错   Index:存在则不再创建，也不报错
         request.opType(DocWriteRequest.OpType.INDEX);
-        String json = "{\n" +
+        String  json = "{\n" +
                 "  \"id\": 1,\n" +
-                "  \"userId\": \"17\",\n" +
-                "  \"name\": \"语文就是回回考100分\",\n" +
-                "  \"price\": \"23\"\n" +
+                "  \"userId\": 7,\n" +
+                "  \"name\": \"语文考神\",\n" +
+                "  \"content\": \"语文就是回回考100分\",\n" +
+                "  \"buyDate\":  \"2021-06-01\",\n" +
+                "  \"price\": 11\n"  +
                 "}";
         request.id("1").source(
                 json,
                 XContentType.JSON
         );
-        IndexResponse indexResponse = null;
         try {
             //调用 index 方法
-            indexResponse = client.index(request, RequestOptions.DEFAULT);
-            System.out.println(indexResponse.getVersion());
+            IndexResponse indexResponse = client.index(request, RequestOptions.DEFAULT);
+            System.err.println(indexResponse.getVersion());
             System.out.println(indexResponse.getIndex());
             System.out.println(indexResponse.getId());
-            System.out.println(indexResponse.status());
+            System.err.println(indexResponse.status());
         } catch (ElasticsearchStatusException | IOException e) {
             e.printStackTrace();
         }

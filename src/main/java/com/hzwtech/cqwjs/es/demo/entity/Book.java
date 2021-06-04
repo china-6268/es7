@@ -2,6 +2,8 @@ package com.hzwtech.cqwjs.es.demo.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @author Jasper Liuzengyu 刘峻华
  * @version v1.0.0
@@ -15,15 +17,17 @@ public class Book {
     private Integer userId;
     private String name;
     private Integer price;
+    private Date buyDate;
 
     public Book() {
     }
 
-    public Book(Integer id, Integer userId, String name, Integer price) {
+    public Book(Integer id, Integer userId, String name, Integer price, Date buyDate) {
         this.id = id;
         this.userId = userId;
         this.name = name;
         this.price = price;
+        this.buyDate = buyDate;
     }
 
     @Override
@@ -33,6 +37,7 @@ public class Book {
                 ", userId=" + userId +
                 ", name='" + name +
                 ", price='" + price +
+                ", buyDate='" + buyDate +
                 '\'' +
                 '}';
     }

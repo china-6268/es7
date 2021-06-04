@@ -1,0 +1,167 @@
+String json = "{\n" +
+                "  \"id\": 4,\n" +
+                "  \"userId\": 34,\n" +
+                "  \"name\": \"物理学霸\",\n" +
+                "  \"content\": \"物理考试没有低过100分\",\n" +
+                "  \"buyDate\":  \"2021-06-02\",\n" +
+               "  \"price\": 33\n"  +
+                "}";
+
+ json = "{\n" +
+                "  \"id\": 1,\n" +
+                "  \"userId\": 7,\n" +
+                "  \"name\": \"语文考神\",\n" +
+                "  \"content\": \"语文就是回回考100分\",\n" +
+                "  \"buyDate\":  \"2021-06-01\",\n" +
+                "  \"price\": 11\n"  +
+                "}";
+
+
+
+    String json = "{\n" +
+                "  \"id\": 1,\n" +
+                "  \"userId\": 7,\n" +
+                "  \"name\": \"语文考神\",\n" +
+                "  \"content\": \"语文就是回回考100分\",\n" +
+                "  \"price\": 11\",\n" +
+                "  \"buyDate\":  2021-06-02\n" +
+                "}";
+
+
+                                         "id" : 1,
+                                         "userId" : "17",
+                                         "name" : "语文就是回回考100分",
+                                         "price" : "23"
+
+
+                {
+                        "_index" : "book-index",
+                        "_type" : "_doc",
+                        "_id" : "2",
+                        "_score" : 1.0,
+                        "_source" : {
+                          "id" : 2,
+                          "userId" : "19",
+                          "name" : "数学每回都考100分",
+                          "price" : "29"
+                        }
+               {
+                       "_source" : {
+                         "id" : 3,
+                         "userId" : 23,
+                         "name" : "英语考试没有低过100分",
+                         "price" : 31
+                       }
+                     },
+
+
+"source_node" : {
+          "properties" : {
+            "uuid" : {
+              "type" : "keyword"
+            },
+            "host" : {
+              "type" : "keyword"
+            },
+            "transport_address" : {
+              "type" : "keyword"
+            },
+            "ip" : {
+              "type" : "keyword"
+            },
+            "name" : {
+              "type" : "keyword"
+            },
+            "timestamp" : {
+              "type" : "date",
+              "format" : "date_time"
+            }
+            //两个format
+            "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+          }
+"jvm" : {
+              "properties" : {
+                "mem" : {
+                  "properties" : {
+                    "heap_used_in_bytes" : {
+                      "type" : "long"
+                    },
+                    "heap_used_percent" : {
+                      "type" : "half_float"
+                    },
+                    "heap_max_in_bytes" : {
+                      "type" : "long"
+                    }
+                  }
+                },
+"bulk" : {
+                  "properties" : {
+                    "threads" : {
+                      "type" : "integer"
+                    },
+                    "queue" : {
+                      "type" : "integer"
+                    },
+                    "rejected" : {
+                      "type" : "long"
+                    }
+                  }
+  "auto_follow_exception" : {
+                  "type" : "object",
+                  "properties" : {
+                    "type" : {
+                      "type" : "keyword"
+                    },
+                    "reason" : {
+                      "type" : "text"
+                    }
+                  }
+                }
+"enrich_executing_policy_stats" : {
+          "properties" : {
+            "name" : {
+              "type" : "keyword"
+            },
+            "task" : {
+              "type" : "object",
+              "properties" : {
+                "node" : {
+                  "type" : "keyword"
+                },
+                "id" : {
+                  "type" : "long"
+                },
+                "type" : {
+                  "type" : "keyword"
+                },
+                "action" : {
+                  "type" : "keyword"
+                },
+                "description" : {
+                  "type" : "keyword"
+                },
+                "start_time_in_millis" : {
+                  "type" : "date",
+                  "format" : "epoch_millis"
+                },
+                "running_time_in_nanos" : {
+                  "type" : "long"
+                },
+                "cancellable" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+       "exponential_average_calculation_context" : {
+          "properties" : {
+            "incremental_metric_value_ms" : {
+              "type" : "double"
+            },
+            "latest_timestamp" : {
+              "type" : "date"
+            },
+            "previous_exponential_average_ms" : {
+              "type" : "double"
+            }
+          }
+        },

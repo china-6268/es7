@@ -1,0 +1,136 @@
+集群相关
+查询集群健康状态
+GET _cluster/health
+查询所有节点
+GET _cat/nodes
+查询索引及分片的分布
+GET _cat/shards
+查询所有插件
+GET _cat/plugins
+索引相关查询
+查询所有索引及容量
+GET _cat/indices
+查询索引映射结构
+GET _index/_mapping
+查询所有索引映射结构
+GET _all
+查询所有的相同前缀索引
+GET base_*/_search
+查询所有索引模板
+GET _template
+1.查询所有数据
+GET _search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+2.查询指定字段下的数据，直接用match
+GET book-index/_search
+{
+  "query": {
+    "match": {
+      "id": "2"
+    }
+  }
+}
+3.当同一个属性满足逻辑或时的查询，用bool和should
+GET book-index/_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "match": {
+            "userId": "19"
+          }
+        },
+        {
+          "match": {
+            "price": "29"
+          }
+        }
+      ]
+    }
+  }
+}
+4.多条件查询
+GET book-index/_search，用bool和must
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "userId": "19"
+          }
+        },
+        {
+          "match": {
+            "price": "29"
+          }
+        }
+      ]
+    }
+  }
+}
+5.范围查询并进行排序，用range：gte和lte指定范围，再用sort：asc和desc排序
+GET book-index/_search
+{
+  "query": {
+    "range": {
+      "price": {
+        "gte": 10,
+        "lte": 40
+      }
+    }
+  },
+  "sort": [
+    {
+      "price": {
+        "order": "asc"
+      }
+    }
+  ]
+}
+
+6.聚合查询
+（1）固定用到size和aggs，field后面输入属性，from和to后边输入要分段的范围
+GET base_company_event*/_search
+{
+  "size": 20,
+  "aggs": {
+    "p_stock2201_f033n": {
+      "range": {
+        "field": "p_stock2201_f033n",
+        "ranges": [
+          {
+            "from": 1000,
+            "to": 2000
+          },{
+            "from": 2000,
+            "to": 3000
+          },{
+            "from": 3000,
+            "to": 4000
+          }
+        ]
+      }
+    }
+  }
+}
+
+PUT book-index
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "updated_date": {
+          "type":   "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        }
+      }
+    }
+  }
+}
+

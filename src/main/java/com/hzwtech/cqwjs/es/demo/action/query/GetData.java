@@ -18,17 +18,16 @@ import java.io.IOException;
  * @date 2021/6/2
  * @since v1.0
  */
-public class QueryData {
+public class GetData {
     @Test
-    public void test01() {
+    public void doQueryData() {
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("127.0.0.1", 9200)));
-        GetRequest request = new GetRequest("book-2");
+        GetRequest request = new GetRequest("book-1");
         // 为特定字段 配置  源包含
-        String[] includs = {"name", "id", "content"};
+        String[] includs = {"name", "id", "content","userId","buyDate"};
         String[] excluds = {"id"};
         FetchSourceContext context = new FetchSourceContext(true, includs, excluds);
-
-        request.id("1").version(1).fetchSourceContext(context);
+        request.id("1").fetchSourceContext(context);
         try {
             GetResponse documentFields = client.get(request, RequestOptions.DEFAULT);
             if (documentFields.isExists()) {

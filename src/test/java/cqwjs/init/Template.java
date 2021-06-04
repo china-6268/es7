@@ -1,4 +1,4 @@
-package cjwjs.init;//package cjwjs.init;
+package cqwjs.init;//package cjwjs.init;
 //
 //import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
 //import org.elasticsearch.client.transport.TransportClient;

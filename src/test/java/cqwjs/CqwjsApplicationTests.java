@@ -1,4 +1,4 @@
-package cjwjs;
+package cqwjs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

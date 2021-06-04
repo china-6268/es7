@@ -1,4 +1,4 @@
-package cjwjs.TransportClient;
+package cqwjs.TransportClient;
 
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
