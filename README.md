@@ -7,7 +7,7 @@
 5.建议使用 Postman 8.5.1 作为开发测试工具<br>
 6.本文开发测试用 Chrome 91.0.4472.77<br>
 7.本工程开发 OS 为 macOS Big Sur 11.4<br>
-8.启动不系统注意不同JDK环境前提下CLI使用 mvn spring-boot:run -P dev 启动开发环境， mvn spring-boot:run -P test 启动测试环境，mvn spring-boot:run -P prod 启动生产环境<br>
+8.启动不同系统要注意第2条提到的不同 JDK 版本确认后，CLI 下使用 mvn spring-boot:run -P dev 启动开发环境， mvn spring-boot:run -P test 启动测试环境，mvn spring-boot:run -P prod 启动生产环境<br>
 
 本工程启动的前置条件：<br>
 1.必须安装 Elasticsearch 7.12.1 并启动<br>
