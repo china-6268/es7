@@ -22,6 +22,7 @@ import org.elasticsearch.index.reindex.DeleteByQueryRequest;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -37,6 +38,7 @@ import java.util.List;
  * @since v1.0
  */
 @Component
+@PropertySource({"classpath:application.properties"})
 public class EsUtil {
     @Value("${es.host}")
     public String host;

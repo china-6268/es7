@@ -1,5 +1,6 @@
 package com.hzwtech.cqwjs.es.demo.action.query;
 
+import lombok.Data;
 import org.apache.http.HttpHost;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
@@ -8,6 +9,7 @@ import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.IOException;
 
@@ -18,15 +20,19 @@ import java.io.IOException;
  * @date 2021/6/2
  * @since v1.0
  */
+@Data
 public class GetData {
+    @Value("${es.indexname}")
+    public String indexName;
+
     @Test
     public void doQueryData() {
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("127.0.0.1", 9200)));
-        GetRequest request = new GetRequest("book-1");
+        GetRequest request = new GetRequest(indexName);
         // 为特定字段 配置  源包含
         String[] includs = {"name", "id", "content","userId","buyDate"};
         String[] excluds = {
-//                "id"
+                "id"
         };
         FetchSourceContext context = new FetchSourceContext(true, includs, excluds);
         request.id("1").fetchSourceContext(context);

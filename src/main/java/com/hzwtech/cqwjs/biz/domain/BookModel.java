@@ -13,27 +13,44 @@ import java.io.Serializable;
  */
 @Data
 public class BookModel implements Serializable {
-    //  图书ID
+    private static final long serialVersionUID = 2380338913332808201L;
+    /**
+     * 图书ID
+     */
     private Integer id;
 
-    //  图书名称
+    /**
+     * 图书名称
+     */
     private String name;
 
-    //  作者
+    /**
+     * 作者
+     */
     private String author;
 
-    //  图书分类
+    /**
+     * 图书分类
+     */
     private Integer category;
 
-    //  图书价格
+    /**
+     * 图书价格
+     */
     private Double price;
 
-    //  上架理由
+    /**
+     * 上架理由
+     */
     private String sellReason;
 
-    //  上架时间
+    /**
+     * 上架时间
+     */
     private String sellTime;
 
-    //  状态（1：可售，0：不可售）
+    /**
+     * 状态（1：可售，0：不可售）
+     */
     private Integer status;
 }

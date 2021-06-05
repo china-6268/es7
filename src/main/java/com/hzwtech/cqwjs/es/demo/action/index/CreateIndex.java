@@ -1,5 +1,6 @@
 package com.hzwtech.cqwjs.es.demo.action.index;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RequestOptions;
@@ -11,6 +12,8 @@ import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 
 import java.io.IOException;
 
@@ -22,7 +25,14 @@ import java.io.IOException;
  * @since v1.0
  */
 @Slf4j
+@Data
+@PropertySource({"classpath:application.properties"})
 public class CreateIndex {
+    @Value("${es.indexName}")
+    public String indexName
+//            ="book_index_demo"
+            ;
+
     private String getJsonString() {
         String json = "{\n" +
                 "  \"dynamic\": true,\n" +
@@ -71,7 +81,6 @@ public class CreateIndex {
                 "      \"index\": true\n" +
                 "    },\n" +
                 "    \"price\": {\n" +
-//                "      \"type\": \"unsigned_long\",\n" +
                 "      \"type\": \"double\",\n" +
                 "      \"index\": true,\n" +
                 "      \"store\": true\n" +
@@ -90,11 +99,6 @@ public class CreateIndex {
                 "      \"type\": \"date\",\n" +
                 "      \"index\": true,\n" +
                 "      \"store\": true\n" +
-                "    },\n" +
-                "    \"gmt_updated\": {\n" +
-                "      \"type\": \"date\",\n" +
-                "      \"index\": true,\n" +
-                "      \"store\": true\n" +
                 "    }\n" +
                 "  }\n" +
                 "}";
@@ -103,9 +107,9 @@ public class CreateIndex {
 
     @Test
     public void doCreateIndex() {
-        String indexName = "book_index_demo";
+//        String indexName = "book_index_demo";
         RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("127.0.0.1", 9200)));
-        CreateIndexRequest createIndexRequest = new CreateIndexRequest(indexName);
+        CreateIndexRequest createIndexRequest = new CreateIndexRequest(this.getIndexName());
         createIndexRequest.settings(Settings.builder().put("index.number_of_shards", 3).put("index.number_of_replicas", 2));
         createIndexRequest.mapping(getJsonString(), XContentType.JSON
         );

@@ -1,0 +1,37 @@
+server:
+  port: 8083
+
+# 默认的profile为dev，其他环境通过指定启动参数使用不同的profile，比如：
+#   测试环境：java -jar my-spring-boot.jar --spring.profiles.active=test
+#   生产环境：java -jar my-spring-boot.jar --spring.profiles.active=prod
+spring:
+  profiles:
+    active: dev
+
+cqwjs:
+  elasticsearch:
+    hostlist: ${eshostlist:127.0.0.1:9200}
+---
+# 开发环境配置
+mysql:
+  ipPort: localhost:3306
+spring:
+  config:
+    activate:
+      on-profile:
+---
+# 测试环境配置
+mysql:
+  ipPort: 192.168.0.12:8066
+spring:
+  config:
+    activate:
+      on-profile:
+---
+# 生产环境配置
+mysql:
+  ipPort: 192.168.0.13:8066
+spring:
+  config:
+    activate:
+      on-profile:

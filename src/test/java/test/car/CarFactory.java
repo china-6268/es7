@@ -3,7 +3,11 @@ package test.car;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
+
+import javax.inject.Inject;
 
 /**
  * @author Jasper Liuzengyu 刘增玉
@@ -15,12 +19,13 @@ import org.springframework.stereotype.Service;
 
 public class CarFactory {
 //    @Autowired
-//    @Qualifier("bMW")
-    private Car car;
+//    @Qualifier("bmwcar")
+//    @Inject
+//    private Car car;
 
-    @Autowired
-    @Qualifier("benz")
-    private Car benz;
+//    @Autowired
+//    @Qualifier("benz")
+//    private Car benz;
 
 //    public String toString() {
 //        return car.carName();
@@ -28,6 +33,8 @@ public class CarFactory {
 
     @Test
     public void toStringBiz(){
-        benz.carName();
+        ApplicationContext context = new AnnotationConfigApplicationContext(BMW.class);
+        Car car = (Car) context.getBean("bmwcar");
+        System.out.println(car.carName());
     }
 }

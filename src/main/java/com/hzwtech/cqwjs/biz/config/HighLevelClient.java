@@ -1,4 +1,4 @@
-package com.hzwtech.cqwjs.biz.dao.connection;
+package com.hzwtech.cqwjs.biz.config;
 
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;

@@ -1,5 +1,8 @@
 package test.car;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,9 +13,11 @@ import org.springframework.stereotype.Component;
  * @since v1.0
  */
 //@Service
-@Component("bMW")
+@Configuration
+@Component
 public class BMW implements Car {
-
+    @Lazy
+    @Bean("bmwcar")
     @Override
     public String carName() {
         return "BMW car";

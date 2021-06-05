@@ -1,6 +1,6 @@
 package es.query.get;
 
-import com.hzwtech.cqwjs.biz.dao.connection.HighLevelClient;
+import com.hzwtech.cqwjs.biz.config.HighLevelClient;
 import es.connection.ESUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.get.GetResponse;
