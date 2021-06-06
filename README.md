@@ -14,8 +14,5 @@
 1.必须安装 Elasticsearch 7.12.1 并启动<br>
 2.推荐启动 Kibana7.12.1<br>
 
-
-工作更新<br>
-2021.6.2<br>
-1.es更新了Client由RestHighLevelClient代替TransportClient
-
+本地开发资源：
+KibanaDev Tools URL：http://localhost:5601/app/dev_tools#/console
