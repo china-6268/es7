@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project [
+        <!ELEMENT project (modelVersion|parent|groupId|artifactId|version|packaging|name|description|properties|dependencies|profiles)*>
+        <!ATTLIST project
+                xmlns:xsi CDATA #REQUIRED
+                xmlns CDATA #REQUIRED
+                xsi:schemaLocation CDATA #REQUIRED>
+        <!ELEMENT modelVersion (#PCDATA)>
+        <!ELEMENT parent (groupId|artifactId|version|relativePath)*>
+        <!ELEMENT groupId (#PCDATA)>
+        <!ELEMENT artifactId (#PCDATA)>
+        <!ELEMENT version (#PCDATA)>
+        <!ELEMENT relativePath (#PCDATA)>
+        <!ELEMENT packaging (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT properties (project.build.sourceEncoding|project.reporting.outputEncoding|env|java.version)*>
+        <!ELEMENT project.build.sourceEncoding (#PCDATA)>
+        <!ELEMENT project.reporting.outputEncoding (#PCDATA)>
+        <!ELEMENT dependencies (dependency)*>
+        <!ELEMENT dependency (groupId|artifactId|version|exclusions|optional|scope)*>
+        <!ELEMENT exclusions (exclusion)*>
+        <!ELEMENT exclusion (groupId|artifactId)*>
+        <!ELEMENT optional (#PCDATA)>
+        <!ELEMENT scope (#PCDATA)>
+        <!ELEMENT profiles (profile)*>
+        <!ELEMENT profile (id|properties|build)*>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT env (#PCDATA)>
+        <!ELEMENT java.version (#PCDATA)>
+        <!ELEMENT build (plugins)*>
+        <!ELEMENT plugins (plugin)*>
+        <!ELEMENT plugin (groupId|artifactId|configuration|version)*>
+        <!ELEMENT configuration (excludes|source|target|encoding|delimiters|useDefaultDelimiters)*>
+        <!ELEMENT excludes (exclude)*>
+        <!ELEMENT exclude (groupId|artifactId)*>
+        <!ELEMENT source (#PCDATA)>
+        <!ELEMENT target (#PCDATA)>
+        <!ELEMENT encoding (#PCDATA)>
+        <!ELEMENT delimiters (delimiter)*>
+        <!ELEMENT delimiter (#PCDATA)>
+        <!ELEMENT useDefaultDelimiters (#PCDATA)>
+        ]>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -251,27 +293,13 @@
             <version>1.0.1</version>
         </dependency>
     </dependencies>
-    <!--    <resources>-->
-    <!--        <resource>-->
-    <!--            <targetPath/>-->
-    <!--            <filtering>-->
-    <!--                true-->
-    <!--            </filtering>-->
-    <!--            <mergeId/>-->
-    <!--            <directory>src/main/resources</directory>-->
-    <!--            <includes>-->
-    <!--                <include>**/*.properties</include>-->
-    <!--                <include>**/*.yml</include>-->
-    <!--                <include>**/*.xml</include>-->
-    <!--            </includes>-->
-    <!--            <excludes/>-->
-    <!--        </resource>-->
-    <!--    </resources>-->
+
     <profiles>
         <!--开发环境-->
         <profile>
             <id>dev</id>
             <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
                 <env>dev</env>
                 <java.version>1.8</java.version>
             </properties>
@@ -300,12 +328,19 @@
                         </configuration>
                     </plugin>
                 </plugins>
+                <!--                <resources>-->
+                <!--                    <resource>-->
+                <!--                        <directory>src/main/resources</directory>-->
+                <!--                        <filtering>true</filtering>-->
+                <!--                    </resource>-->
+                <!--                </resources>-->
             </build>
         </profile>
         <!--测试环境-->
         <profile>
             <id>test</id>
             <properties>
+                <spring.profiles.active>test</spring.profiles.active>
                 <env>test</env>
                 <java.version>1.8</java.version>
             </properties>
@@ -334,12 +369,19 @@
                         </configuration>
                     </plugin>
                 </plugins>
+                <!--                <resources>-->
+                <!--                    <resource>-->
+                <!--                        <directory>src/main/resources</directory>-->
+                <!--                        <filtering>true</filtering>-->
+                <!--                    </resource>-->
+                <!--                </resources>-->
             </build>
         </profile>
         <!--生产环境-->
         <profile>
             <id>prod</id>
             <properties>
+                <spring.profiles.active>prod</spring.profiles.active>
                 <env>prod</env>
                 <java.version>11</java.version>
             </properties>
@@ -367,7 +409,22 @@
                             <encoding>UTF-8</encoding>
                         </configuration>
                     </plugin>
+                    <!--                    <plugin>-->
+                    <!--                        <artifactId/>-->
+                    <!--                        <configuration>-->
+                    <!--                        <delimiters>-->
+                    <!--                            <delimiter>@</delimiter>-->
+                    <!--                        </delimiters>-->
+                    <!--                        <useDefaultDelimiters>false</useDefaultDelimiters>-->
+                    <!--                    </configuration>-->
+                    <!--                </plugin>-->
                 </plugins>
+                <!--<resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>-->
             </build>
         </profile>
     </profiles>

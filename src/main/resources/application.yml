@@ -6,7 +6,7 @@
 #   生产环境：java -jar my-spring-boot.jar --spring.profiles.active=prod
 spring:
   profiles:
-    active: dev
+    active:
 
 cqwjs:
   elasticsearch:
