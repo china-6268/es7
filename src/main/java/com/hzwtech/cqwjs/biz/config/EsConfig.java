@@ -12,7 +12,7 @@ import org.elasticsearch.client.RestHighLevelClient;
  */
 public interface EsConfig {
 
-    public RestHighLevelClient restHighLevelClient();
+    RestHighLevelClient restHighLevelClient();
 
-    public RestClient restClient();
+    RestClient restClient();
 }

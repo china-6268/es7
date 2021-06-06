@@ -23,7 +23,6 @@ public class CqwjsApplication implements CommandLineRunner {
     @Value("${server.port}")
     private int port;
 
-
     @Override
     public void run(String... args) throws Exception {
         System.out.println("es.indexName is " + indexName);
