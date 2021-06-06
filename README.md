@@ -14,5 +14,5 @@
 1.必须安装 Elasticsearch 7.12.1 并启动<br>
 2.推荐启动 Kibana7.12.1<br>
 
-本地开发资源：
-KibanaDev Tools URL：http://localhost:5601/app/dev_tools#/console
+本地开发资源：<br>
+KibanaDev Tools URL：http://localhost:5601/app/dev_tools#/console <br>
