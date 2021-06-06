@@ -8,7 +8,8 @@
 6.本文开发测试用 Chrome 91.0.4472.77<br>
 7.本工程开发 OS 为 macOS Big Sur 11.4<br>
 8.本工程使用 maven 版本为 3.8.1<br>
-9.启动不同系统要注意第2条提到的不同 JDK 版本确认后，CLI 下使用 mvn spring-boot:run -P dev 启动开发环境， mvn spring-boot:run -P test 启动测试环境，mvn spring-boot:run -P prod 启动生产环境<br>
+9.中文分词采用 IK Analysis for Elasticsearch https://github.com/medcl/elasticsearch-analysis-ik/releases/tag/v7.12.1 最近2天内有更新<br>
+10.启动不同系统要注意第2条提到的不同 JDK 版本确认后，CLI 下使用 mvn spring-boot:run -P dev 启动开发环境， mvn spring-boot:run -P test 启动测试环境，mvn spring-boot:run -P prod 启动生产环境<br>
 
 本工程启动的前置条件：<br>
 1.必须安装 Elasticsearch 7.12.1 并启动<br>
