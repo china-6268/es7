@@ -10,7 +10,7 @@
 8.本工程使用 maven 版本为 3.8.1<br>
 9.中文分词采用 IK Analysis for Elasticsearch https://github.com/medcl/elasticsearch-analysis-ik/releases/tag/v7.12.1 （工程最近2天内有更新到了13.1版本）<br>
 10.启动不同系统要注意第2条提到的不同 JDK 版本确认后，CLI 下使用 mvn spring-boot:run -P dev 启动开发环境， mvn spring-boot:run -P test 启动测试环境，mvn spring-boot:run -P prod 启动生产环境<br>
-11.因 hanlp 具有8种分词模式可选，较 IK 总共2种分词模式更为丰富。但受限生态能力支持，若中文分词采用 hanlp，则 Elasticsearch 版本目前只能暂时降为 7.10.2 ,参见 https://github.com/KennFalcon/elasticsearch-analysis-hanlp/releases/tag/v7.10.2 ，此时 Kibana 也将采用 7.10.2 参见 https://www.elastic.co/downloads/past-releases#kibana ，中文分词库参见 https://github.com/hankcs/HanLP/releases <br>
+11.因 hanlp 具有8种分词模式可选，较 IK 总共2种分词模式更为丰富。但受限生态能力支持，若中文分词采用 hanlp，则 Elasticsearch 版本目前只能暂时降为 7.10.2 ,参见 https://github.com/KennFalcon/elasticsearch-analysis-hanlp/releases/tag/v7.10.2 ，此时 Kibana 也将采用 7.10.2 参见 https://www.elastic.co/downloads/past-releases#kibana 及对应的 https://www.elastic.co/downloads/past-releases/kibana-7-10-2 ，中文分词库参见 https://github.com/hankcs/HanLP/releases <br>
 
 本工程启动的前置条件：<br>
 1.必须安装 Elasticsearch 7.12.1 并启动<br>
