@@ -59,6 +59,16 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+<!--        <maven.test.skip>true</maven.test.skip>-->
+<!--        <hw-drools.version>7.37.0.Final</hw-drools.version>-->
+<!--        <spring-boot.version>2.1.5.RELEASE</spring-boot.version>-->
+<!--        <slf4j-api.version>1.7.26</slf4j-api.version>-->
+<!--        <junit.version>4.12</junit.version>-->
+        <drools.version>7.54.0.Final</drools.version>
+        <elasticsearch.version>7.10.2</elasticsearch.version>
     </properties>
     <dependencies>
         <dependency>
@@ -88,6 +98,7 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>
+            <version>2.5.0</version>
         </dependency>
         <!--		New in Spring Data Elasticsearch 4.2-->
         <!--		Upgrade to Elasticsearch 7.10.0.-->
@@ -139,23 +150,23 @@
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>transport</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-client-sniffer</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tika</groupId>
@@ -189,37 +200,37 @@
         <dependency>
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>rank-eval-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>lang-mustache-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>percolator-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>parent-join-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch-secure-sm</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch-x-content</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch-cli</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch</groupId>
@@ -230,17 +241,17 @@
         <dependency>
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>transport-netty4-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>reindex-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-client</artifactId>
-            <version>7.12.1</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
@@ -273,11 +284,6 @@
             <version>1.7.1</version>
         </dependency>
         <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>drools-core</artifactId>
-            <version>7.54.0.Final</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>jena-core</artifactId>
             <version>4.0.0</version>
@@ -292,6 +298,12 @@
             <artifactId>simple-http</artifactId>
             <version>1.0.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -301,7 +313,7 @@
             <properties>
                 <spring.profiles.active>dev</spring.profiles.active>
                 <env>dev</env>
-                <java.version>1.8</java.version>
+<!--                <java.version>1.8</java.version>-->
             </properties>
             <build>
                 <plugins>
@@ -342,7 +354,7 @@
             <properties>
                 <spring.profiles.active>test</spring.profiles.active>
                 <env>test</env>
-                <java.version>1.8</java.version>
+<!--                <java.version>1.8</java.version>-->
             </properties>
             <build>
                 <plugins>
@@ -383,7 +395,7 @@
             <properties>
                 <spring.profiles.active>prod</spring.profiles.active>
                 <env>prod</env>
-                <java.version>11</java.version>
+<!--                <java.version>11</java.version>-->
             </properties>
             <build>
                 <plugins>
