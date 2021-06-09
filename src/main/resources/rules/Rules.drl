@@ -1,5 +1,5 @@
 
-import com.hzwtech.cqwjs.drools.example.Server
+import com.hzwtech.cqwjs.drools.example.model.Server
 rule "Check Server Configuration"
   when
   $server : Server( processors < 2 || memory<=1024 || diskspace <= 2048)
