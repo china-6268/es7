@@ -1,4 +1,4 @@
-package com.hzwtech.cqwjs.drools.example.main;
+package drools.verity;
 
 import com.hzwtech.cqwjs.drools.example.model.Server;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +10,7 @@ import org.kie.api.definition.rule.Rule;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
+
 /**
  * @author Jasper Liuzengyu 刘峻华
  * @version v1.0.0
@@ -19,22 +20,25 @@ import org.kie.api.runtime.KieSession;
  */
 @Slf4j
 public class ServerCheck {
-    private KieServices kieServices=KieServices.Factory.get();
-//    @Test
-    public  void main1(
-//            String[] args
+    private KieServices kieServices = KieServices.Factory.get();
+
+    @Test
+    public void main1(
     ) {
-//        KieServices kieServices = KieServices.Factory.get();
         KieContainer kContainer = kieServices.getKieClasspathContainer();
         log.info("Creating kieBase");
-        KieBase kieBase = kContainer.getKieBase();
+
+        KieBase kieBase = kContainer.getKieBase("server_config_check");
         log.info("There should be rules: ");
+
         for (KiePackage kp : kieBase.getKiePackages()) {
+
             for (Rule rule : kp.getRules()) {
                 System.err.println("kp " + kp + " rule " + rule.getName());
-//                LOG.info("kp " + kp + " rule " + rule.getName());
             }
         }
+
+
         log.info("Creating kieSession");
         KieSession session = kieBase.newKieSession();
         log.info("Now running data");
@@ -48,25 +52,28 @@ public class ServerCheck {
     }
 
     @Test
-    public  void serverCheckAction() {
-//        KieServices kieServices = KieServices.Factory.get();
+    public void serverCheckAction() {
         KieContainer kContainer = kieServices.getKieClasspathContainer();
-        log.info("Creating kieBase");
-        KieBase kieBase = kContainer.getKieBase();
-        log.info("There should be rules: ");
+        System.out.println("Creating kieBase 创建知识管理基础");
+//        KieBase kieBase = kContainer.getKieBase();
+        KieBase kieBase = kContainer.getKieBase("server_config_check");
+        System.out.println("这里应当有规则");
         for (KiePackage kp : kieBase.getKiePackages()) {
             for (Rule rule : kp.getRules()) {
-                System.err.println("kp " + kp + " rule " + rule.getName());
+                System.out.println(kp.getRules().toArray() + " KiePackage " + kp.getName() + " rule " + rule.getName());
             }
         }
-        log.info("Creating kieSession");
+        System.out.println("创建知识管理会话 Creating kieSession");
         KieSession session = kieBase.newKieSession();
-        log.info("Now running data");
-        Server s1 = new Server("rhel7 ", 2, 102, 2048);
+//        log.info("Now running data");
+        /**
+         * 这里的值要结合rule.drl的内容来修改，以保证达到预期的结果
+         */
+        Server s1 = new Server("中科方德 ", 1, 102, 2048);
         session.insert(s1);
         session.fireAllRules();
 
-        Server s2 = new Server("rhel8 ", 2, 204, 409);
+        Server s2 = new Server("兆芯服务器 ", 8, 4096, 8192);
         session.insert(s2);
         session.fireAllRules();
     }

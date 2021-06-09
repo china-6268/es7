@@ -1,9 +1,9 @@
-
+package rules.example.serverconfig
 import com.hzwtech.cqwjs.drools.example.model.Server
 rule "Check Server Configuration"
   when
   $server : Server( processors < 2 || memory<=1024 || diskspace <= 2048)
   then
   $server.setValid(false);
-  System.out.println("Server 111:::"+ $server.getName() + " configuration does not meet requirements!");
+  System.err.println("Server 服务器  "+ $server.getName() + " 不匹配要求 configuration does not meet requirements!");
 end

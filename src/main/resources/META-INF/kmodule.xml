@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kmodule xmlns="http://www.drools.org/xsd/kmodule">
-
+    <kbase name="server_config_check" packages="rules.example.serverconfig">
+        <ksession name="server_config_check"></ksession>
+    </kbase>
+    <kbase name="product_discount_confirm" packages="rules.examples.product">
+        <ksession name="product_discount_confirm"></ksession>
+    </kbase>
+    <!--    <kbase packages="org.drools.examples.helloworld">-->
+    <!--        <ksession name="HelloWorldKS"/>-->
+    <!--    </kbase>-->
 </kmodule>
