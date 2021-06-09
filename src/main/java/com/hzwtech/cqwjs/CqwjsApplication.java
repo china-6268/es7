@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+//@Index
 @ComponentScan(basePackages = {
         "com.hzwtech.cqwjs.biz.config",
         "com.hzwtech.cqwjs.biz.config.impl",

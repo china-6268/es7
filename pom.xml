@@ -62,12 +62,13 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <java-version>11</java-version>
+        <java.version>11</java.version>
 <!--        <maven.test.skip>true</maven.test.skip>-->
-<!--        <hw-drools.version>7.37.0.Final</hw-drools.version>-->
-<!--        <spring-boot.version>2.1.5.RELEASE</spring-boot.version>-->
-<!--        <slf4j-api.version>1.7.26</slf4j-api.version>-->
-<!--        <junit.version>4.12</junit.version>-->
+        <junit.version>4.13.2</junit.version>
+        <junit-version>4.13.2</junit-version>
         <drools.version>7.54.0.Final</drools.version>
+        <drools-version>7.54.0.Final</drools-version>
         <elasticsearch.version>7.10.2</elasticsearch.version>
     </properties>
     <dependencies>
@@ -176,19 +177,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <version>${junit-version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -298,13 +293,50 @@
             <artifactId>simple-http</artifactId>
             <version>1.0.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-core</artifactId>
             <version>${drools.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-ci</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+            <version>${drools.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-bom</artifactId>
+            <type>pom</type>
+            <version>${drools-version}</version>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+        </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-bom</artifactId>
+                <type>pom</type>
+                <version>${drools-version}</version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <profiles>
         <!--开发环境-->
@@ -317,6 +349,12 @@
             </properties>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.kie</groupId>
+                        <artifactId>kie-maven-plugin</artifactId>
+                        <version>${drools-version}</version>
+                        <extensions>true</extensions>
+                    </plugin>
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -333,11 +371,6 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.8.1</version>
-                        <configuration>
-                            <source>1.8</source>
-                            <target>1.8</target>
-                            <encoding>UTF-8</encoding>
-                        </configuration>
                     </plugin>
                 </plugins>
                 <!--                <resources>-->
@@ -359,6 +392,12 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.kie</groupId>
+                        <artifactId>kie-maven-plugin</artifactId>
+                        <version>${drools-version}</version>
+                        <extensions>true</extensions>
+                    </plugin>
+                    <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
@@ -374,11 +413,6 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.8.1</version>
-                        <configuration>
-                            <source>1.8</source>
-                            <target>1.8</target>
-                            <encoding>UTF-8</encoding>
-                        </configuration>
                     </plugin>
                 </plugins>
                 <!--                <resources>-->
@@ -400,6 +434,12 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.kie</groupId>
+                        <artifactId>kie-maven-plugin</artifactId>
+                        <version>${drools-version}</version>
+                        <extensions>true</extensions>
+                    </plugin>
+                    <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
@@ -416,8 +456,8 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.8.1</version>
                         <configuration>
-                            <source>11</source>
-                            <target>11</target>
+                            <source>${java.version}</source>
+                            <target>${java.version}</target>
                             <encoding>UTF-8</encoding>
                         </configuration>
                     </plugin>
