@@ -5,7 +5,7 @@
 3.目前已经安装配置 elasticsearch-analysis-ik-7.12.1，也可以事后根据需要替换为hanlp-restful 0.04 <br>
 4.本工程建议安装部署 Kibana 7.12.1 , 主要目的是匹配 Elasticsearch 版本保持版本号一致 <br>
 5.建议使用 Postman 8.5.1 作为开发测试工具 <br>
-6.本文开发测试用 Chrome 91.0.4472.77 <br>
+6.本文开发测试浏览器为 Chrome 91.0.4472.101 <br>
 7.本工程开发 OS 为 macOS Big Sur 11.4 <br>
 8.本工程使用 maven 版本为 3.8.1 <br>
 9.中文分词采用 IK Analysis for Elasticsearch https://github.com/medcl/elasticsearch-analysis-ik/releases/tag/v7.12.1 （工程最近2天内有更新到了13.1版本）<br>
