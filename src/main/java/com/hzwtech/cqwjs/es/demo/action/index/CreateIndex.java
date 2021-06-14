@@ -90,6 +90,11 @@ public class CreateIndex {
                 "      \"index\": true,\n" +
                 "      \"store\": true\n" +
                 "    },\n" +
+                "    \"version\": {\n" +
+                "      \"type\": \"integer\",\n" +
+                "      \"index\": true,\n" +
+                "      \"store\": true\n" +
+                "    },\n" +
                 "    \"is_deleted\": {\n" +
                 "      \"type\": \"short\",\n" +
                 "      \"index\": true,\n" +
