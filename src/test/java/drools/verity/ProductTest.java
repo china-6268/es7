@@ -17,8 +17,8 @@ public class ProductTest {
             KieBase kieBase = kContainer.getKieBase("product_discount_confirm");
             KieSession kSession = kieBase.newKieSession();
             Product product = new Product();
-            product.setType("gold");
-//            product.setType("diamond");
+//            product.setType("gold");
+            product.setType("diamond");
             kSession.insert(product);
             kSession.fireAllRules();
             System.err.println("The discount for the jewellery product "
