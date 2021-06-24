@@ -30,18 +30,34 @@ public class PizzaSparqlNoInf extends JenaBase {
     public void run() {
         OntModel m = getModel();
         loadData( m );
-        String prefix = "prefix pizza: <" + PIZZA_NS + ">\n" +
-                "prefix rdfs: <" + RDFS.getURI() + ">\n" +
-                "prefix owl: <" + OWL.getURI() + ">\n";
+        String prefix = " prefix  pizza:  <" + PIZZA_NS + ">\n" +
+
+                "   prefix    rdfs:   <" + RDFS.getURI() + ">" +
+//                "\n"
+//                +
+                "   prefix     owl:   <" + OWL.getURI() + ">\n"
+                ;
 
 
         showQuery( m,
                 prefix +
-                        "select ?pizza where {?pizza a owl:Class ; " +
-                        "                            rdfs:subClassOf ?restriction.\n" +
-                        "                     ?restriction owl:onProperty pizza:hasTopping ;" +
-                        "                            owl:someValuesFrom pizza:PeperoniSausageTopping" +
-                        "}" );
+                        "select "                                                                       +
+                        "   ?pizza_query_results "                                                      +
+                        "where "                                                                        +
+                        "       {"                                                                      +
+                        "         ?pizza_query_results  "                                               +
+                        "                               a  owl:Class"                                   +
+                        "                     ;                        "                                +
+                        "                            rdfs:subClassOf "                                  +
+                        "                     ?restriction"                                             +
+                        "       .         "                                                             +
+                        "                     ?restriction "                                            +
+                        "                            owl:onProperty "                                   +
+                        "                                               pizza:hasTopping ;"             +
+                        //打开这个条件，会让结果更少到3条，
+                        "                            owl:someValuesFrom pizza:PeperoniSausageTopping"   +
+                        "}"
+        );
     }
 
     protected OntModel getModel() {

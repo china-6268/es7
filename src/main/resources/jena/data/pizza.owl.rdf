@@ -151,7 +151,7 @@
 
     <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#American -->
 
-    <owl:Class rdf:about="#American">
+    <owl:Class rdf:about="#American_tag">
         <rdfs:label xml:lang="pt">Americana</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -200,7 +200,7 @@
 
     <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#AmericanHot -->
 
-    <owl:Class rdf:about="#AmericanHot">
+    <owl:Class rdf:about="#AmericanHot_tag">
         <rdfs:label xml:lang="pt"
             >AmericanaPicante</rdfs:label>
         <rdfs:subClassOf>
@@ -816,7 +816,7 @@
 
     <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#FourSeasons -->
 
-    <owl:Class rdf:about="#FourSeasons">
+    <owl:Class rdf:about="#FourSeasons_tag">
         <rdfs:label xml:lang="pt">QuatroQueijos</rdfs:label>
         <rdfs:subClassOf>
             <owl:Restriction>
