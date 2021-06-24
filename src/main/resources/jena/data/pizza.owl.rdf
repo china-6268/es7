@@ -195,11 +195,7 @@
         <owl:disjointWith rdf:resource="#QuattroFormaggi"/>
         <owl:disjointWith rdf:resource="#AmericanHot"/>
     </owl:Class>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/pizza/pizza.owl#AmericanHot -->
-
     <owl:Class rdf:about="#AmericanHot_tag">
         <rdfs:label xml:lang="pt"
             >AmericanaPicante</rdfs:label>

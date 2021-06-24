@@ -1,0 +1,5 @@
+@prefix ta: <http://www.tutorialacademy.com/jenatext#> .
+
+ta:subject1 ta:hasLongText "The Tutorial Academy is a wonderful place for tutorials!" .
+ta:subject2 ta:hasLongText "The Tutorial Academy offers wonderful tips and tricks for programming!" .
+ta:subject3 ta:hasLongText "The Tutorial Academy is great!" .

@@ -4,6 +4,7 @@ import com.hzwtech.cqwjs.jena.JenaBase;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.*;
+
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.util.FileManager;
@@ -37,7 +38,6 @@ public class PizzaSparqlNoInf extends JenaBase {
 //                +
                 "   prefix     owl:   <" + OWL.getURI() + ">\n"
                 ;
-
 
         showQuery( m,
                 prefix +
