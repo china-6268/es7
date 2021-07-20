@@ -46,6 +46,7 @@
     <modelVersion>4.0.0</modelVersion>
     <properties>
         <spirng.version>2.5.2</spirng.version>
+        <spring.boot.versions>2.5.2</spring.boot.versions>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
@@ -59,7 +60,6 @@
         <elasticsearch.version>7.10.2</elasticsearch.version>
         <shiro.core>1.7.1</shiro.core>
         <alibaba.fastjson>1.2.76</alibaba.fastjson>
-        <spring.boot.versions>2.5.1</spring.boot.versions>
         <apache.tika>1.26</apache.tika>
         <lombok.version>1.18.20</lombok.version>
         <commons.cli>1.4</commons.cli>
