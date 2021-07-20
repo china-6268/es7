@@ -19,7 +19,7 @@
 本地开发资源：<br>
 KibanaDev Tools URL：http://localhost:5601/app/dev_tools#/console <br>
 
-windowws下碰到idea的报错：
-Error running 'ServiceStarter': Command line is too long. Shorten command line for ServiceStarter or also for Application default configuration.
-解法:
+windowws下碰到idea的报错：<br>
+Error running 'ServiceStarter': Command line is too long. Shorten command line for ServiceStarter or also for Application default configuration.<br>
+解法:<br>
 修改项目下 .idea\workspace.xml，找到标签 <component name="PropertiesComponent"> ， 在标签里加一行  <property name="dynamic.classpath" value="true" />
