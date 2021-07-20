@@ -44,27 +44,15 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    <groupId>com.hzwtech</groupId>
-    <artifactId>cqwjs</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
-    <name>cqwjs</name>
-    <description>cqwjs project for Spring Boot</description>
     <properties>
+        <spirng.version>2.5.2</spirng.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <java-version>11</java-version>
         <java.version>11</java.version>
-<!--        <maven.test.skip>true</maven.test.skip>-->
+        <!--        <maven.test.skip>true</maven.test.skip>-->
         <junit.version>4.13.2</junit.version>
         <drools.version>7.54.0.Final</drools.version>
         <jena.version>4.1.0</jena.version>
@@ -87,7 +75,20 @@
         <kafka.version>2.8.0</kafka.version>
         <apache.maven.site.plugin>3.9.1</apache.maven.site.plugin>
         <neo4j.java.driver>4.3.2</neo4j.java.driver>
+        <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
     </properties>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.hzwtech</groupId>
+    <artifactId>cqwjs</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>cqwjs</name>
+    <description>cqwjs project for Spring Boot</description>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -418,6 +419,7 @@
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
+                        <version>${spirng.version}</version>
                         <configuration>
                             <excludes>
                                 <exclude>
@@ -430,7 +432,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.1</version>
+                        <version>${maven.compiler.plugin}</version>
                     </plugin>
                 </plugins>
                 <!--                <resources>-->
@@ -460,6 +462,7 @@
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
+                        <version>${spirng.version}</version>
                         <configuration>
                             <excludes>
                                 <exclude>
@@ -472,7 +475,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.1</version>
+                        <version>${maven.compiler.plugin}</version>
                     </plugin>
                 </plugins>
                 <!--                <resources>-->
@@ -502,6 +505,7 @@
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
+                        <version>${spirng.version}</version>
                         <configuration>
                             <excludes>
                                 <exclude>
@@ -514,7 +518,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.1</version>
+                        <version>${maven.compiler.plugin}</version>
                         <configuration>
                             <source>${java.version}</source>
                             <target>${java.version}</target>
