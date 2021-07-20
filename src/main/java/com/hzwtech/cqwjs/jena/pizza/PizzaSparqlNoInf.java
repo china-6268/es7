@@ -55,7 +55,7 @@ public class PizzaSparqlNoInf extends JenaBase {
                         "                            owl:onProperty "                                   +
                         "                                               pizza:hasTopping ;"             +
                         //打开这个条件，会让结果更少到3条，
-                        "                            owl:someValuesFrom pizza:PeperoniSausageTopping"   +
+//                        "                            owl:someValuesFrom pizza:PeperoniSausageTopping"   +
                         "}"
         );
     }
