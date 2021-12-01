@@ -18,7 +18,8 @@
 
 本地开发资源：<br>
 KibanaDev Tools URL：http://localhost:5601/app/dev_tools#/console <br>
-效果参见本地目录下截图 src/test/data/screenShot
+效果参见本地目录下截图 src/test/data/screenShot<br>
+参考文档：https://github.com/bettermorn/KGCourse/wiki/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E5%92%8C%E4%BB%A3%E7%A0%81%E9%80%9F%E6%9F%A5%E8%A1%A8
 
 windowws下碰到idea的报错：<br>
 1.Error running 'ServiceStarter': Command line is too long. Shorten command line for ServiceStarter or also for Application default configuration. <br>
